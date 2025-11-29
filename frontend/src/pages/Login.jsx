@@ -23,13 +23,16 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "https://studywithai-1.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       const data = await res.json();
       console.log("Login response:", data);
@@ -54,59 +57,62 @@ export default function Login() {
 
   return (
     <>
-    <div className="min-h-screen flex items-center justify-center bg-black px-4">
-      <Link to="/" className="absolute top-6 left-6 flex items-center gap-2 bg-black text-white justify-center">
-    <Home size={28} />
-    <span className="text-lg font-semibold"></span>
-  </Link>
-      
-      <div className="w-full max-w-md bg-zinc-900 rounded-2xl p-8 shadow-xl border border-zinc-800">
-        <h2 className="text-4xl font-bold text-center text-white mb-6">
-          Login
-        </h2>
+      <div className="min-h-screen flex items-center justify-center bg-black px-4">
+        <Link
+          to="/"
+          className="absolute top-6 left-6 flex items-center gap-2 bg-black text-white justify-center"
+        >
+          <Home size={28} />
+          <span className="text-lg font-semibold"></span>
+        </Link>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="text-gray-300 text-sm">Email</label>
-            <input
-              name="email"
-              type="email"
-              className="w-full px-4 py-3 mt-1 rounded-lg bg-zinc-800 text-white outline-none border border-zinc-700 focus:border-blue-500 transition"
-              placeholder="Enter email"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="text-gray-300 text-sm">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="w-full px-4 py-3 mt-1 rounded-lg bg-zinc-800 text-white outline-none border border-zinc-700 focus:border-blue-500 transition"
-              placeholder="Enter password"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition font-semibold text-lg"
-          >
+        <div className="w-full max-w-md bg-zinc-900 rounded-2xl p-8 shadow-xl border border-zinc-800">
+          <h2 className="text-4xl font-bold text-center text-white mb-6">
             Login
-          </button>
-        </form>
+          </h2>
 
-        <p className="text-gray-400 text-center mt-5">
-          Don't have an account?{" "}
-          <a href="/signup" className="text-blue-500 hover:text-blue-400">
-            Signup
-          </a>
-        </p>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label className="text-gray-300 text-sm">Email</label>
+              <input
+                name="email"
+                type="email"
+                className="w-full px-4 py-3 mt-1 rounded-lg bg-zinc-800 text-white outline-none border border-zinc-700 focus:border-blue-500 transition"
+                placeholder="Enter email"
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
+              <label className="text-gray-300 text-sm">Password</label>
+              <input
+                name="password"
+                type="password"
+                className="w-full px-4 py-3 mt-1 rounded-lg bg-zinc-800 text-white outline-none border border-zinc-700 focus:border-blue-500 transition"
+                placeholder="Enter password"
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full mt-4 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition font-semibold text-lg"
+            >
+              Login
+            </button>
+          </form>
+
+          <p className="text-gray-400 text-center mt-5">
+            Don't have an account?{" "}
+            <a href="/signup" className="text-blue-500 hover:text-blue-400">
+              Signup
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
-     <Footer/>
+      <Footer />
     </>
   );
 }

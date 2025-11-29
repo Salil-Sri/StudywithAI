@@ -13,7 +13,7 @@ export const generateNotes = async (req,res) =>{
       1. A clean summary
       2. 5 Flashcards (Q&A)
       3. 5 MCQs with answer
-      4. List of important keywords
+      4. List of important keywords only 20 keywords
 
       TEXT STARTS NOW:
       ${text}

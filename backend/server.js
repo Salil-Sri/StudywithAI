@@ -17,10 +17,6 @@ mongoose.connect(process.env.MONGO_DB_URL)
 .then(()=>console.log("Database Connected"))
 .catch((err)=>console.log("DB error: ",err));
 
-// Routes
-app.use("/api/notes", notesRoutes);
-
-
 // Server start
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
